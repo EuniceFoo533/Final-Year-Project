@@ -14,7 +14,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
         android:layout_marginTop="80dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/white"
@@ -24,9 +24,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_alternates_bold"
-            android:text="Login"
+            android:text="Create \nnew account"
             android:textStyle="bold"
             android:textSize="45dp"
             android:textColor="@color/black"
@@ -38,17 +38,17 @@
             android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:text="EMAIL" />
+            android:text="NAME" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editTextName"
             android:layout_marginTop="15dp"
             android:background="@drawable/input"
             android:padding="15dp"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter email here"
+            android:hint="Enter name here"
             android:layout_gravity="center"
             android:inputType="textEmailAddress" />
 
@@ -58,10 +58,30 @@
             android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:text="EMAIL" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input"
+            android:padding="15dp"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter email here"
+            android:layout_gravity="center"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_marginTop="30sp"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
             android:text="PASSWORD" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextPassword"
             android:layout_marginTop="15dp"
             android:background="@drawable/input"
             android:padding="15dp"
@@ -73,35 +93,31 @@
             android:inputType="textPassword" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button4"
+            android:id="@+id/buttonSignUp"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
             android:background="@drawable/button"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_alternates_bold"
-            android:text="Login"
+            android:text="Sign Up"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:textAllCaps="false"/>
 
         <TextView
-            android:id="@+id/textViewRegister"
+            android:id="@+id/textViewLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="100dp"
             android:fontFamily="@font/montserrat_alternates"
             android:textAlignment="center"
-            android:textSize="18dp"
             android:textColor="@color/black"
-            android:text="Don't have any account? Register here" />
+            android:textSize="18dp"
+            android:text="Already registered? Login here" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:srcCompat="@drawable/login" />
+
 
     </LinearLayout>
     </ScrollView>
