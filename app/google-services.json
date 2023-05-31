@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "734326595800",
+    "project_id": "smart-parking-fea2c",
+    "storage_bucket": "smart-parking-fea2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734326595800:android:7311b7fb4696286ba337ad",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734326595800-vlus8ee9ato0tn0kgb95q964ctrb0u44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7892wCNJkDAnPUeHlYgklN1F1XT-mmLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734326595800-vlus8ee9ato0tn0kgb95q964ctrb0u44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
