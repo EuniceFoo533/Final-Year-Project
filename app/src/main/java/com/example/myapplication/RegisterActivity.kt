@@ -57,6 +57,15 @@ class RegisterActivity : AppCompatActivity() {
                             .add(user)
                             .addOnSuccessListener { documentReference ->
                                 Toast.makeText(this,"Registered successfully!",Toast.LENGTH_SHORT).show()
+
+
+                                firebaseAuth.currentUser?.sendEmailVerification()
+                                    ?.addOnSuccessListener {
+                                        Toast.makeText(this, "Please verify your email", Toast.LENGTH_SHORT).show()
+                                    }
+                                    ?.addOnFailureListener{
+                                        Toast.makeText(this, it.toString(),Toast.LENGTH_SHORT).show()
+                                    }
                             }
                             .addOnFailureListener { e ->
                                 Toast.makeText(this,"Failed to Register!",Toast.LENGTH_SHORT).show()
@@ -65,7 +74,21 @@ class RegisterActivity : AppCompatActivity() {
 
                         val intent = Intent(this,LoginActivity::class.java)
                         startActivity(intent)
+
+
                     }
+
+                    else if(email.isEmpty() || password.isEmpty())
+                    {
+                        Toast.makeText(this,"Please fill in the blank",Toast.LENGTH_LONG).show()
+                    }
+
+
+                    else if (password.length< 8)
+                    {
+                        Toast.makeText(this,"Password should be at least 8 characters",Toast.LENGTH_LONG).show()
+                    }
+
                     else
                     {
                         Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()
@@ -73,16 +96,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
 
-            else if(email.isEmpty() || password.isEmpty())
-            {
-                Toast.makeText(this,"Please fill in the blank",Toast.LENGTH_LONG).show()
-            }
 
-
-            else if (password.length< 8)
-            {
-                Toast.makeText(this,"Password should be at least 8 characters",Toast.LENGTH_LONG).show()
-            }
 
             else
             {
