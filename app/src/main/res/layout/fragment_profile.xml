@@ -60,7 +60,7 @@
             android:textAllCaps="false"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnChangePassword"
+            android:id="@+id/buttonChangePassword"
             android:layout_width="380dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -94,7 +94,7 @@
             android:textAllCaps="false"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnFAQ"
+            android:id="@+id/buttonFAQ"
             android:layout_width="380dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -111,19 +111,19 @@
             android:textAllCaps="false"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnPrivacy"
+            android:id="@+id/buttonLogout"
             android:layout_width="380dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:paddingStart="15dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_menu"
-            android:drawableStart="@drawable/privacy_icon"
+            android:drawableStart="@drawable/logout_icon"
             android:drawableEnd="@drawable/arrow_in"
             android:drawablePadding="20dp"
             android:textAlignment="textStart"
             android:fontFamily="@font/poppins_medium"
-            android:text="Privacy Policy"
+            android:text="Logout"
             android:textSize="18sp"
             android:textAllCaps="false"/>
 

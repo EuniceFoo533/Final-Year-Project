@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ReloadFragment">
+    tools:context=".fragments.AddVehicleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -18,25 +18,66 @@
             android:src="@drawable/grey_buildings" />
 
         <TextView
-            android:id="@+id/tvChoosePass"
+            android:id="@+id/tvPlateNumber"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="50dp"
-            android:text="Enter the amount to reload:"
+            android:text="Enter the vehicle plate number:"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edtNumber"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="numberDecimal"
-            android:hint="RM 0.00" />
+            android:hint="MAA 1234" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="50dp"
+            android:text="Enter the vehicle type:"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <Spinner
+            android:id="@+id/edtType"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/poppins_medium"
+             />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="50dp"
+            android:text="Enter the vehicle name:"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/poppins_medium"
+            android:inputType="numberDecimal"
+            android:hint="eg. : Myvi" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
@@ -50,7 +91,6 @@
             android:textSize="18sp"
             android:textColor="@color/white"
             android:text="RELOAD WALLET" />
-
 
     </LinearLayout>
 

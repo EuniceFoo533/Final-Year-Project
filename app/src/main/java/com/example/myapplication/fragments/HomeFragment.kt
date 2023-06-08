@@ -24,9 +24,6 @@ private const val ARG_PARAM2 = "param2"
  */
 class HomeFragment : Fragment() {
 
-    //private lateinit var binding: FragmentHomeBinding
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -37,17 +34,31 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnHourly = getView()?.findViewById<Button>(R.id.btnHourly)
+        val btnReload = getView()?.findViewById<Button>(R.id.buttonReload)
+        val btn1 = getView()?.findViewById<Button>(R.id.btn1)
+        val btn2 = getView()?.findViewById<Button>(R.id.btn2)
+        val btn3 = getView()?.findViewById<Button>(R.id.btn3)
+        val btn4 = getView()?.findViewById<Button>(R.id.btn4)
+        val btn5 = getView()?.findViewById<Button>(R.id.btn5)
+        val btn6 = getView()?.findViewById<Button>(R.id.btn6)
+        val btn7 = getView()?.findViewById<Button>(R.id.btn7)
+        val btn8 = getView()?.findViewById<Button>(R.id.btn8)
+        val btn9 = getView()?.findViewById<Button>(R.id.btn9)
+
+
         btnHourly?.setOnClickListener {
-            Toast.makeText(context,"Hi",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Hourly Pass is Selected",Toast.LENGTH_SHORT).show()
         }
 
-        // Intent to Reload Fragment
-        val btnReload = getView()?.findViewById<Button>(R.id.buttonReload)
         btnReload?.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frame_layout,ReloadFragment())
             transaction?.disallowAddToBackStack()
             transaction?.commit()
+        }
+
+        btn2?.setOnClickListener {
+
         }
 
 

@@ -29,7 +29,7 @@
 
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnChangePassword"
+            android:id="@+id/buttonAdd"
             android:layout_width="380dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
