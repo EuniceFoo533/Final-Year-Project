@@ -2,8 +2,9 @@
     <string name="app_name">Vehicle Smart Parking</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="selected_item">Selected Item:</string>
 
-    <string-array name="vehicle">
+    <string-array name="Vehicle">
         <item>Car</item>
         <item>Lorry</item>
         <item>Motor</item>

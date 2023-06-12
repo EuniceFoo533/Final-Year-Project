@@ -25,6 +25,7 @@
             android:paddingTop="50dp"
             android:text="Enter the vehicle plate number:"
             android:textSize="18sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"/>
 
@@ -35,7 +36,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            android:inputType="numberDecimal"
+            android:inputType="textCapCharacters"
             android:hint="MAA 1234" />
 
         <TextView
@@ -46,14 +47,18 @@
             android:paddingTop="50dp"
             android:text="Enter the vehicle type:"
             android:textSize="18sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"/>
 
         <Spinner
             android:id="@+id/edtType"
+            android:background="@drawable/borders"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:spinnerMode="dialog"
+            android:overlapAnchor="false"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
              />
@@ -66,6 +71,7 @@
             android:paddingTop="50dp"
             android:text="Enter the vehicle name:"
             android:textSize="18sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"/>
 
@@ -76,11 +82,11 @@
             android:layout_gravity="center"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            android:inputType="numberDecimal"
+            android:inputType="text"
             android:hint="eg. : Myvi" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button"
+            android:id="@+id/buttonAdd"
             android:background="@drawable/button"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -90,7 +96,7 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@color/white"
-            android:text="RELOAD WALLET" />
+            android:text="ADD VEHICLE" />
 
     </LinearLayout>
 
