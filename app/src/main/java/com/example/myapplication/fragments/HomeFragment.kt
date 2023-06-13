@@ -34,6 +34,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnHourly = getView()?.findViewById<Button>(R.id.btnHourly)
+        val btnMonthly = getView()?.findViewById<Button>(R.id.btnMontly)
+
         val btnReload = getView()?.findViewById<Button>(R.id.buttonReload)
         val btn1 = getView()?.findViewById<Button>(R.id.btn1)
         val btn2 = getView()?.findViewById<Button>(R.id.btn2)
@@ -50,6 +52,16 @@ class HomeFragment : Fragment() {
             Toast.makeText(context,"Hourly Pass is Selected",Toast.LENGTH_SHORT).show()
         }
 
+        btnMonthly?.setOnClickListener {
+            Toast.makeText(context,"Seasonal Pass is Selected",Toast.LENGTH_SHORT).show()
+
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_layout,SeasonalFragment())
+            transaction?.disallowAddToBackStack()
+            transaction?.commit()
+        }
+
+
         btnReload?.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frame_layout,ReloadFragment())
@@ -57,7 +69,273 @@ class HomeFragment : Fragment() {
             transaction?.commit()
         }
 
+        btn1?.setOnClickListener {
+            btn1?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn1.setTextColor(resources.getColor(R.color.white))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
         btn2?.setOnClickListener {
+            btn2?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn2.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn3?.setOnClickListener {
+            btn3?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn3.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn4?.setOnClickListener {
+            btn4?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn4.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn5?.setOnClickListener {
+            btn5?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn5.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn6?.setOnClickListener {
+            btn6?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn6.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn7?.setOnClickListener {
+            btn7?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn7.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn8?.setOnClickListener {
+            btn8?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn8.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
+
+            btn9?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn9?.setTextColor(resources.getColor(R.color.blue))
+
+        }
+
+        btn9?.setOnClickListener {
+            btn9?.setBackgroundColor(resources.getColor(R.color.purple))
+            btn9.setTextColor(resources.getColor(R.color.white))
+
+            btn1?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn1?.setTextColor(resources.getColor(R.color.blue))
+
+            btn3?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn3?.setTextColor(resources.getColor(R.color.blue))
+
+            btn4?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn4?.setTextColor(resources.getColor(R.color.blue))
+
+            btn5?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn5?.setTextColor(resources.getColor(R.color.blue))
+
+            btn6?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn6?.setTextColor(resources.getColor(R.color.blue))
+
+            btn7?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn7?.setTextColor(resources.getColor(R.color.blue))
+
+            btn8?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn8?.setTextColor(resources.getColor(R.color.blue))
+
+            btn2?.setBackgroundColor(resources.getColor(R.color.grey))
+            btn2?.setTextColor(resources.getColor(R.color.blue))
 
         }
 
