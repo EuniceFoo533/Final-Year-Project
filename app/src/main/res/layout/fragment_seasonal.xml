@@ -62,10 +62,16 @@
             android:fontFamily="@font/poppins_medium"/>
 
         <Spinner
+            android:id="@+id/spinnerCar"
             android:layout_width="350dp"
             android:layout_height="30dp"
             android:outlineProvider="@color/black"
+            android:background="@drawable/borders"
             android:layout_gravity="center"
+            android:spinnerMode="dialog"
+            android:overlapAnchor="false"
+            android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             />
 
         <TextView
