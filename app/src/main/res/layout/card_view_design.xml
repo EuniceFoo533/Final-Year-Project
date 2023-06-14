@@ -13,8 +13,8 @@
         android:orientation="horizontal"
         android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imageview"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
             android:background="@drawable/delete"
             android:layout_marginStart="10dp"
             android:layout_width="40dp"
@@ -22,7 +22,7 @@
             />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
