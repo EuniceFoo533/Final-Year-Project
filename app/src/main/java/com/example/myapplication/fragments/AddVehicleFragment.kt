@@ -1,6 +1,8 @@
 package com.example.myapplication.fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +33,7 @@ class AddVehicleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val  type = resources.getStringArray(R.array.Vehicle)
+        val type = resources.getStringArray(R.array.Vehicle)
 
         firebaseAuth =FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -80,6 +82,11 @@ class AddVehicleFragment : Fragment() {
                         Toast.makeText(context,"Failed to Add!",Toast.LENGTH_SHORT).show()
 
                     }
+
+                db.collection("cities").document(currentUser!!.uid)
+                    .set(vehicle)
+                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
             }
 
 

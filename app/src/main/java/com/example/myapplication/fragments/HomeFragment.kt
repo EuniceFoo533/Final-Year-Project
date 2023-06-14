@@ -1,40 +1,76 @@
 package com.example.myapplication.fragments
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityLoginBinding
 import com.example.myapplication.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private lateinit var carsRef: CollectionReference
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    private fun populateSpinner(itemList: List<String>) {
+        val spinner = getView()?.findViewById<Spinner>(R.id.spinnerCar)
+        val adapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, itemList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner?.adapter = adapter
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnHourly = getView()?.findViewById<Button>(R.id.btnHourly)
+        firebaseAuth =FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+        carsRef = db.collection("vehicles")
+
+        var currentUser = firebaseAuth.currentUser
+
+        // Retrieve data into spinner
+        carsRef
+            .whereEqualTo("userID",currentUser!!.uid)
+            .get().addOnSuccessListener { documents ->
+            if(documents!=null && !documents.isEmpty)
+            {
+                val itemList = mutableListOf<String>()
+                for(document in documents){
+                    val item = document.getString("vehicle_number")
+                    if(item !=null){
+                        itemList.add(item)
+                    }
+                    populateSpinner(itemList)
+                }
+            }
+
+        }.addOnFailureListener{ exception ->
+            Log.e("Firestore", "Error getting documents: ", exception)
+        }
+
+
         val btnMonthly = getView()?.findViewById<Button>(R.id.btnMontly)
+        val btnHourly = getView()?.findViewById<Button>(R.id.btnHourly)
 
         val btnReload = getView()?.findViewById<Button>(R.id.buttonReload)
         val btn1 = getView()?.findViewById<Button>(R.id.btn1)
