@@ -1,3 +1,3 @@
 package com.example.myapplication
 
-data class Users(val id:String, val name:String, val email:String, val password:String)
+data class Users(val userId:String, val userName:String, val userEmail:String, val userPassword:String)

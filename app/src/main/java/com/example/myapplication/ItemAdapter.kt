@@ -75,16 +75,16 @@ class ItemAdapter(private val itemList: MutableList<Item>) : RecyclerView.Adapte
             val nameTextView: TextView = itemView.findViewById(R.id.tvNumber)
             nameTextView.text = item.number
 
-            val deleteButton : Button = itemView.findViewById(R.id.btnDelete)
+            val deleteButton: Button = itemView.findViewById(R.id.btnDelete)
 
-                deleteButton.setOnClickListener {
+            deleteButton.setOnClickListener {
 
-                    val position = adapterPosition
-                    if (position != RecyclerView.NO_POSITION) {
-                        showDeleteConfirmationDialog(itemView.context, position)
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    showDeleteConfirmationDialog(itemView.context, position)
 
-                    }
                 }
+            }
 
 
 

@@ -83,10 +83,7 @@ class AddVehicleFragment : Fragment() {
 
                     }
 
-                db.collection("cities").document(currentUser!!.uid)
-                    .set(vehicle)
-                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
-                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
             }
 
 

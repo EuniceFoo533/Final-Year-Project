@@ -48,6 +48,20 @@ class HomeFragment : Fragment() {
 
         var currentUser = firebaseAuth.currentUser
 
+        val walletAmount = getView()?.findViewById<Button>(R.id.button2)
+
+        db.collection("wallet").document(currentUser!!.uid)
+            .get().addOnSuccessListener { documents->
+                if(documents!=null)
+                {
+                    val item = documents.getDouble("walletAmount")
+
+                    val amount = "My Wallet\n RM "+ item.toString() +"0"
+                    walletAmount?.text = amount
+                }
+            }
+
+
         // Retrieve data into spinner
         carsRef
             .whereEqualTo("userID",currentUser!!.uid)

@@ -44,8 +44,7 @@ class RegisterActivity : AppCompatActivity() {
             var currentUser = firebaseAuth.currentUser
 
 
-
-            if(email.isNotEmpty() && password.isNotEmpty())
+            if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty())
             {
                 firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{
                     if (it.isSuccessful)
@@ -72,6 +71,21 @@ class RegisterActivity : AppCompatActivity() {
 
                             }
 
+                        val wallet = Wallet(0.00,currentUser!!.uid)
+
+                        // Add a new document with a generated ID
+                        db.collection("wallet").document(currentUser!!.uid)
+                            .set(wallet)
+                            .addOnSuccessListener { documentReference ->
+                                Toast.makeText(this,"Your wallet has been successfully reload.", Toast.LENGTH_SHORT).show()
+
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this,"Failed to Reload!", Toast.LENGTH_SHORT).show()
+
+                            }
+
+
                         val intent = Intent(this,LoginActivity::class.java)
                         startActivity(intent)
 
@@ -83,11 +97,6 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this,"Please fill in the blank",Toast.LENGTH_LONG).show()
                     }
 
-
-                    else if (password.length< 8)
-                    {
-                        Toast.makeText(this,"Password should be at least 8 characters",Toast.LENGTH_LONG).show()
-                    }
 
                     else
                     {

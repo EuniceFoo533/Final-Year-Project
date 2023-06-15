@@ -31,6 +31,7 @@ class ProfileFragment : Fragment() {
 
         val btnVehicle = getView()?.findViewById<Button>(R.id.buttonVehicle)
         val btnReset = getView()?.findViewById<Button>(R.id.buttonChangePassword)
+        val btnTransaction = getView()?.findViewById<Button>(R.id.btnTransaction)
         val btnFAQ = getView()?.findViewById<Button>(R.id.buttonFAQ)
         val btnLogout = getView()?.findViewById<Button>(R.id.buttonLogout)
 
@@ -46,6 +47,13 @@ class ProfileFragment : Fragment() {
         btnReset?.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frame_layout,ResetPasswordFragment())
+            transaction?.disallowAddToBackStack()
+            transaction?.commit()
+        }
+
+        btnTransaction?.setOnClickListener {
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_layout,TransactionFragment())
             transaction?.disallowAddToBackStack()
             transaction?.commit()
         }

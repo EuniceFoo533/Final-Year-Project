@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 
 import com.example.myapplication.databinding.ActivityHomeBinding
 import com.example.myapplication.fragments.HomeFragment
+import com.example.myapplication.fragments.LocationFragment
 import com.example.myapplication.fragments.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class HomeActivity : AppCompatActivity() {
 
             when(it.itemId) {
                 R.id.parking -> replaceFragment(HomeFragment())
+                R.id.locate -> replaceFragment(LocationFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
 
 
