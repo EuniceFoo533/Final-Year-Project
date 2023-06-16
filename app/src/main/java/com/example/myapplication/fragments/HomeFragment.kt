@@ -6,13 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityLoginBinding
 import com.example.myapplication.databinding.FragmentHomeBinding
@@ -36,6 +33,9 @@ class HomeFragment : Fragment() {
         val adapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, itemList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner?.adapter = adapter
+
+        spinner?.setSelection(0)
+
     }
 
 
@@ -45,6 +45,8 @@ class HomeFragment : Fragment() {
         firebaseAuth =FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         carsRef = db.collection("vehicles")
+
+
 
         var currentUser = firebaseAuth.currentUser
 
@@ -61,14 +63,16 @@ class HomeFragment : Fragment() {
                 }
             }
 
-
+        val hint = "--------Select Your Vehicle--------"
         // Retrieve data into spinner
         carsRef
             .whereEqualTo("userID",currentUser!!.uid)
             .get().addOnSuccessListener { documents ->
             if(documents!=null && !documents.isEmpty)
             {
-                val itemList = mutableListOf<String>()
+                val itemList = mutableListOf<String>().apply {
+                    add(hint)
+                }
                 for(document in documents){
                     val item = document.getString("vehicle_number")
                     if(item !=null){

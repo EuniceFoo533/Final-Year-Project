@@ -15,9 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-
-
 class SeasonalFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -29,6 +26,8 @@ class SeasonalFragment : Fragment() {
         val adapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, itemList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner?.adapter = adapter
+
+        spinner?.setSelection(0)
     }
 
     override fun onCreateView(
@@ -46,13 +45,30 @@ class SeasonalFragment : Fragment() {
 
         var currentUser = firebaseAuth.currentUser
 
+
+        val walletAmount = getView()?.findViewById<Button>(R.id.button2)
+
+        db.collection("wallet").document(currentUser!!.uid)
+            .get().addOnSuccessListener { documents->
+                if(documents!=null)
+                {
+                    val item = documents.getDouble("walletAmount")
+
+                    val amount = "My Wallet\n RM "+ item.toString() +"0"
+                    walletAmount?.text = amount
+                }
+            }
+
+        val hint = "--------Select Your Vehicle--------"
         // Retrieve data into spinner
         carsRef
             .whereEqualTo("userID",currentUser!!.uid)
             .get().addOnSuccessListener { documents ->
                 if(documents!=null && !documents.isEmpty)
                 {
-                    val itemList = mutableListOf<String>()
+                    val itemList = mutableListOf<String>().apply {
+                        add(hint)
+                    }
                     for(document in documents){
                         val item = document.getString("vehicle_number")
                         if(item !=null){
