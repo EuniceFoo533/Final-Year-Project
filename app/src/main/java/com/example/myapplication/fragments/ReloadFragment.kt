@@ -79,7 +79,7 @@ class ReloadFragment : Fragment() {
                                         Toast.makeText(context,"Your wallet has been successfully reload.", Toast.LENGTH_SHORT).show()
 
                                     }.addOnFailureListener{
-                                        Toast.makeText(context,"Your wallet has been successfully reload.", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(context,"Failed reload.", Toast.LENGTH_SHORT).show()
 
                                     }
                             }

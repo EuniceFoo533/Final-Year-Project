@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:allowBackup="true"
@@ -20,16 +20,13 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
 
-        <service
-            android:name=".fragments.CountdownService"
-            android:exported="false" />
+
 
         <activity
             android:name=".MainActivity2"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.MyApplication.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action" />
 
@@ -54,7 +51,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBOfrb-L4AR90SnuKLzrApp6f6xUfqbn9I" />
-
 
         <activity
             android:name=".HomeActivity"

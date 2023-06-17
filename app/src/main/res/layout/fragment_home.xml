@@ -42,12 +42,12 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/button"
+                android:drawableStart="@drawable/add"
                 android:fontFamily="@font/poppins_medium"
                 android:paddingStart="20dp"
-                android:drawableStart="@drawable/add"
                 android:text="Reload\nWallet"
                 android:textAllCaps="false"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <TextView
@@ -55,35 +55,34 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
             android:paddingTop="10dp"
             android:text="Choose Your Vehicle"
-            android:textSize="18sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_medium"/>
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/spinnerCar"
             android:layout_width="350dp"
             android:layout_height="30dp"
-            android:outlineProvider="@color/black"
-            android:background="@drawable/borders"
             android:layout_gravity="center"
-            android:spinnerMode="dialog"
-            android:overlapAnchor="false"
+            android:background="@drawable/borders"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            />
+            android:outlineProvider="@color/black"
+            android:overlapAnchor="false"
+            android:spinnerMode="dialog" />
 
         <TextView
             android:id="@+id/tvChoosePass"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
             android:paddingTop="10dp"
             android:text="Choose Your Pass"
-            android:textSize="18sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_medium"/>
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="350dp"
@@ -93,30 +92,30 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnHourly"
-                android:background="@drawable/button"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/button"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Hourly"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textAllCaps="false"/>
+                android:textSize="15sp" />
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnMontly"
-                android:background="@drawable/button"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/button"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Seasonal"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textAllCaps="false"/>
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -125,175 +124,127 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
             android:paddingTop="10dp"
             android:text="Choose Daily Pass"
-            android:textSize="18sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_medium"/>
+            android:textSize="18sp" />
 
-        <LinearLayout
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn1"
-                android:background="@color/purple"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:textStyle="bold"
-                android:text="30 min\n RM0.40"
-                android:textColor="@color/white"
-                android:textAllCaps="false"/>
+                <RadioButton
+                    android:id="@+id/btn1"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="30min \nRM 0.40" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn2"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
-                android:fontFamily="@font/poppins_medium"
-                android:text="1 hour\n RM0.60"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                <RadioButton
+                    android:id="@+id/btn2"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="1 hour \nRM 0.60" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn3"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
-                android:fontFamily="@font/poppins_medium"
-                android:text="2 hours\n RM1.20"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                <RadioButton
+                    android:id="@+id/btn3"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="2 hours \nRM 1.20" />
 
-            <androidx.appcompat.widget.AppCompatButton
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <RadioButton
                 android:id="@+id/btn4"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="3 hours\n RM1.80"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="3 hours \nRM 1.80" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn5"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="4 hours \n RM2.40"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="4 hours \nRM 2.40" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn6"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="5 hours \n RM3.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="5 hours \nRM 3.00"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn7"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
-                android:fontFamily="@font/poppins_medium"
-                android:text="6 hours \n RM3.60"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn8"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
-                android:fontFamily="@font/poppins_medium"
-                android:text="7 hours \n RM4.20"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+        </RadioGroup>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radioGroup3"
+            android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn9"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+            <RadioButton
+                android:id="@+id/btn7"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Whole day\n RM 4.80"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="6 hours \nRM 3.60" />
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/btn8"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="7 hours \nRM 4.20" />
+
+            <RadioButton
+                android:id="@+id/btn9"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="8 hours \nRM4.80" />
+
+
+        </RadioGroup>
+
 
 
         <LinearLayout
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:paddingTop="10dp"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn10"
-                android:background="@drawable/button"
+                android:id="@+id/btnPurchase"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.5"
+                android:background="@drawable/button"
                 android:fontFamily="@font/poppins_medium"
-                android:textStyle="bold"
                 android:text="Confirm Purchase"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

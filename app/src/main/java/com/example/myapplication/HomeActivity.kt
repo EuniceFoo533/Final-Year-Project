@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
 
             when(it.itemId) {
                 R.id.parking -> replaceFragment(HomeFragment())
-
+                R.id.active -> replaceFragment(TimerFragment())
                 R.id.locate -> replaceFragment(LocationFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
 
