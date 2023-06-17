@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.myapplication.R
-import com.example.myapplication.Transaction
+import com.example.myapplication.database.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference

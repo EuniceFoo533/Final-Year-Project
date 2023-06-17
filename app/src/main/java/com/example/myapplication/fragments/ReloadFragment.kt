@@ -11,9 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.myapplication.R
-import com.example.myapplication.Transaction
-import com.example.myapplication.Vehicles
-import com.example.myapplication.Wallet
+import com.example.myapplication.database.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore

@@ -1,3 +1,5 @@
+package com.example.myapplication.adapter
+
 import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
@@ -5,11 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.fragments.Item
+import com.example.myapplication.item.Item
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore

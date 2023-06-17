@@ -1,16 +1,16 @@
+package com.example.myapplication.adapter
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.ItemLocation
+import com.example.myapplication.item.ItemLocation
 import com.example.myapplication.R
-import com.example.myapplication.fragments.Item
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LocationAdapter(private val itemList: MutableList<ItemLocation>,private val listener: OnItemClickListener) : RecyclerView.Adapter<LocationAdapter.ViewHolder>() {
+class LocationAdapter(private val itemList: MutableList<ItemLocation>, private val listener: OnItemClickListener) : RecyclerView.Adapter<LocationAdapter.ViewHolder>() {
 
     interface OnItemClickListener {
         fun onItemClick(item: ItemLocation)

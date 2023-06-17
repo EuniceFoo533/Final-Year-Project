@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.fragments.Transact
+import com.example.myapplication.R
+import com.example.myapplication.item.Transact
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,7 +51,9 @@ class TransactAdapter(private val itemList: MutableList<Transact>) : RecyclerVie
 
             val icon :Button = itemView.findViewById(R.id.iconReload)
             if(textViewType.text == "Purchase"){
-                val newDrawable = ContextCompat.getDrawable(itemView.context, R.drawable.transaction_icon_out)
+                val newDrawable = ContextCompat.getDrawable(itemView.context,
+                    R.drawable.transaction_icon_out
+                )
                 icon.setCompoundDrawablesWithIntrinsicBounds(newDrawable, null, null, null)
             }
 

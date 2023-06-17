@@ -1,6 +1,6 @@
 package com.example.myapplication.fragments
 
-import LocationAdapter
+import com.example.myapplication.adapter.LocationAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,14 +10,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.myapplication.ItemLocation
+import com.example.myapplication.item.ItemLocation
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class SavedLocationFragment : Fragment(),LocationAdapter.OnItemClickListener {
+class SavedLocationFragment : Fragment(), LocationAdapter.OnItemClickListener {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore

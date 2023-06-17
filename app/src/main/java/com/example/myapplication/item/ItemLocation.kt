@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.item
 
 data class ItemLocation(
     val itemId:String, val latitude: Double?,
