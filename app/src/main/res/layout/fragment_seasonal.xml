@@ -131,124 +131,85 @@
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"/>
 
-        <LinearLayout
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn1"
-                android:background="#8c52ff"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:textStyle="bold"
-                android:text="1 weeks\n RM 23.00"
-                android:textColor="@color/white"
-                android:textAllCaps="false"/>
+                android:text="1 weeks \nRM 23.00" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn2"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="1 month\n RM 90.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="1 month \nRM 90.00" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn3"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="2 month\n RM 180.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="2 month \nRM 180.00" />
 
 
-        </LinearLayout>
+        </RadioGroup>
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn4"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="3 month \n RM 225.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="3 month \nRM 225.00" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn5"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="4 month \n RM 360.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="4 month \nRM 360.00" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn6"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="5 month \n RM 450.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="5 month \nRM 450.00"/>
 
 
-        </LinearLayout>
+        </RadioGroup>
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radioGroup3"
+            android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <RadioButton
                 android:id="@+id/btn7"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/grey"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="6 month\n RM 540.00"
-                android:textAllCaps="false"
-                android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:text="6 month \nRM 540.00" />
 
-        </LinearLayout>
+        </RadioGroup>
+
 
 
         <LinearLayout
@@ -260,7 +221,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn10"
+                android:id="@+id/btnPurchase"
                 android:background="@drawable/button"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"

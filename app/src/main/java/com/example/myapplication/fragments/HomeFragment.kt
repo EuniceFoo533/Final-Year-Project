@@ -1,8 +1,6 @@
 package com.example.myapplication.fragments
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -13,13 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.os.bundleOf
 import com.example.myapplication.R
 import com.example.myapplication.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.DecimalFormat
 import java.time.LocalDate
 
 class HomeFragment : Fragment() {
@@ -68,7 +66,10 @@ class HomeFragment : Fragment() {
                 {
                     val item = documents.getDouble("walletAmount")
 
-                    val amount = "My Wallet\n RM "+ item.toString() +"0"
+                    val decimalFormat = DecimalFormat("#.00")
+                    val formattedValue = decimalFormat.format(item)
+                    val amount = "My Wallet\n RM "+ formattedValue.toString()
+
                     walletAmount?.text = amount
                 }
             }
@@ -200,16 +201,209 @@ class HomeFragment : Fragment() {
         btnPurchase?.setOnClickListener{
             if(btn1!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
+                val price :Double = 0.40
 
                 val builder = AlertDialog.Builder(context)
-                builder.setTitle("Confirm Purchase")
-                builder.setMessage("Are you sure you want to purchase " + btn1.text + "?" )
-                //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 30 minutes\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,0.4)
+                    storeFirestore(currentUser,price)
                     Toast.makeText(requireContext(),
                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn2!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 0.60
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 1 hour\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn3!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 1.20
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 2 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn4!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 1.80
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 3 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn5!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 2.40
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 4 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn6!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 3.00
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 5 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn7!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 3.60
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 6 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn8!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 4.20
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 7 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                    Toast.makeText(requireContext(),
+                        "You Have Cancel Your Purchase", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.show()
+
+            }
+
+            else if(btn9!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
+            {
+                val price :Double = 4.80
+
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Confirmation")
+                builder.setMessage("Please Confirm Your Purchase\n\nDuration: 8 hours\nVehicle: " + spinner?.selectedItem.toString()
+                        + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
+
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    storeFirestore(currentUser,price)
+                    Toast.makeText(requireContext(),
+                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
 
                 builder.setNegativeButton(android.R.string.no) { dialog, which ->
@@ -227,59 +421,6 @@ class HomeFragment : Fragment() {
 
      }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun storeFirestore(currentUser: FirebaseUser, price: Double)
-    {
-
-        val transactionType = "Purchase"
-        val currentDate = LocalDate.now().toString()
-
-        var existAmount : Double = 0.0
-
-        db.collection("wallet")
-                .document(currentUser!!.uid)
-                .get().addOnSuccessListener { documents->
-                    if(documents!=null)
-                    {
-                        val item = documents.getDouble("walletAmount")
-                        if (item != null) {
-                            existAmount = item
-                            existAmount -= price
-
-                            val fieldUpdates = HashMap<String, Any>()
-                            fieldUpdates["walletAmount"] = existAmount
-
-
-                            db.collection("wallet")
-                                .document(currentUser!!.uid)
-                                .update(fieldUpdates)
-                                .addOnSuccessListener{
-                                    Toast.makeText(context,"Successfully purchase.", Toast.LENGTH_SHORT).show()
-
-                                }.addOnFailureListener{
-                                    Toast.makeText(context,"Failed.", Toast.LENGTH_SHORT).show()
-
-                                }
-                        }
-                    }
-                }
-
-
-
-
-            val transaction = Transaction(transactionType,"+ RM "+ price +"0",currentDate,currentUser!!.uid)
-            db.collection("transaction").document()
-                .set(transaction)
-                .addOnSuccessListener { documentReference ->
-
-                }
-                .addOnFailureListener { e ->
-
-
-                }
-
-
-    }
 }
 
     @RequiresApi(Build.VERSION_CODES.O)
