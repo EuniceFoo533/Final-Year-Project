@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C0F0F7"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_alternates_bold"
+                android:text="Admin Login"
+                android:textStyle="bold"
+                android:textSize="45dp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="EMAIL" />
+
+            <EditText
+                android:id="@+id/edtEmailAddress"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/input"
+                android:padding="15dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter email here"
+                android:layout_gravity="center"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_marginTop="30sp"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="PASSWORD" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/input"
+                android:padding="15dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter password here"
+                android:layout_gravity="center"
+                android:inputType="textPassword" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonLogin"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates_bold"
+                android:text="Login"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"/>
+
+            <TextView
+                android:id="@+id/textViewRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:text="Don't have any account? Register here" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/admin" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

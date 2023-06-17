@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityLoginBinding
+import com.example.myapplication.fragments.ResetPasswordFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -22,6 +23,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.textViewRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.tvReset.setOnClickListener{
+            val intent = Intent(this, ResetPasswordFragment::class.java)
             startActivity(intent)
         }
 
