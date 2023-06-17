@@ -43,8 +43,6 @@ class HomeFragment : Fragment() {
 
             spinner?.setSelection(0)
 
-
-
     }
 
 
