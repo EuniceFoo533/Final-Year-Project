@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.example.myapplication.ItemLocation
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
@@ -16,18 +17,29 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class SavedLocationFragment : Fragment() {
+class SavedLocationFragment : Fragment(),LocationAdapter.OnItemClickListener {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+    private lateinit var adapter: LocationAdapter
     private lateinit var locationRef: CollectionReference
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_location, container, false)
+    }
+
+    override fun onItemClick(item: ItemLocation) {
+
+        val latitude = item.latitude
+        val longitude = item.longitude
+
+        val newFragment = GetLocationFragment.newInstance(latitude,longitude)
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout, newFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,7 +70,7 @@ class SavedLocationFragment : Fragment() {
                     }
                     val recyclerView =
                         getView()?.findViewById<RecyclerView>(R.id.recyclerview) // Replace "recyclerView" with your actual RecyclerView ID
-                    val adapter = LocationAdapter(itemList)
+                    val adapter = LocationAdapter(itemList,this)
                     recyclerView?.adapter = adapter
                     recyclerView?.layoutManager = LinearLayoutManager(requireContext())
 
@@ -68,6 +80,9 @@ class SavedLocationFragment : Fragment() {
                 // Handle any errors that occurred during data retrieval
                 Log.e("Firestore", "Error getting documents: ", exception)
             }
+
+
+
 
     }
 

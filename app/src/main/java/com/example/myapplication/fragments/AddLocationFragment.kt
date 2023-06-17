@@ -37,8 +37,8 @@ class AddLocationFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_LATITUDE = "latitude"
-        private const val ARG_LONGITUDE = "longitude"
+        const val ARG_LATITUDE = "latitude"
+        const val ARG_LONGITUDE = "longitude"
 
         fun newInstance(latitude: String, longitude: String): AddLocationFragment {
             val fragment = AddLocationFragment()

@@ -10,8 +10,11 @@ import com.example.myapplication.fragments.Item
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LocationAdapter(private val itemList: MutableList<ItemLocation>) : RecyclerView.Adapter<LocationAdapter.ViewHolder>() {
+class LocationAdapter(private val itemList: MutableList<ItemLocation>,private val listener: OnItemClickListener) : RecyclerView.Adapter<LocationAdapter.ViewHolder>() {
 
+    interface OnItemClickListener {
+        fun onItemClick(item: ItemLocation)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_location, parent, false)
@@ -21,11 +24,20 @@ class LocationAdapter(private val itemList: MutableList<ItemLocation>) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
         holder.bind(item)
+
+        //When recycler view item is clicked
+        holder.itemView.setOnClickListener{
+            listener.onItemClick(item)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
         return itemList.size
     }
+
+
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -45,9 +57,12 @@ class LocationAdapter(private val itemList: MutableList<ItemLocation>) : Recycle
 
             tvDate.text = formattedDate
             tvCar.text = item.vehicle
-            tvLocation.text = "("+item.latitude.toString() + item.longitude.toString()+")"
+            tvLocation.text = "("+item.latitude.toString() +","+ item.longitude.toString()+")"
 
-    }
+
+
+
+        }
 }
 }
 
