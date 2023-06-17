@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.fragments.Transact
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TransactAdapter(private val itemList: MutableList<Transact>) : RecyclerView.Adapter<TransactAdapter.ViewHolder>() {
@@ -33,8 +35,17 @@ class TransactAdapter(private val itemList: MutableList<Transact>) : RecyclerVie
             val textViewDate: TextView = itemView.findViewById(R.id.tvDate)
             val textViewAmount: TextView = itemView.findViewById(R.id.tvAmount)
 
+
+            val dateString = item.transactDate
+
+            val inputDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val outputDateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+
+            val date = inputDateFormat.parse(dateString)
+            val formattedDate = outputDateFormat.format(date)
+
+            textViewDate.text = formattedDate
             textViewType.text = item.transactType
-            textViewDate.text = item.transactDate
             textViewAmount.text = item.transactAmount
 
             val icon :Button = itemView.findViewById(R.id.iconReload)

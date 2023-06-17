@@ -16,6 +16,7 @@ import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class AddLocationFragment : Fragment() {
 
@@ -106,16 +107,32 @@ class AddLocationFragment : Fragment() {
             var spinner = getView()?.findViewById<Spinner>(R.id.spinnerCar)
             val selectedItem = spinner?.selectedItem.toString()
 
-            val location = SavedLocation(latitude!!.toDouble(),longitude!!.toDouble(),currentUser!!.uid,selectedItem)
-            db.collection("location")
-                .document()
-                .set(location)
-                .addOnSuccessListener { documentReference ->
-                    Toast.makeText(context,"Location Have Successfully Stored.",Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(context,"Failed to store.",Toast.LENGTH_SHORT).show()
-                }
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH) + 1 // Months are zero-based, so adding 1
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val currentDate = "$year-$month-$day"
+
+            if(selectedItem == "--------Select Your Vehicle--------")
+            {
+                Toast.makeText(context,"Please Choose Your Vehicle.",Toast.LENGTH_SHORT).show()
+            }
+
+            else{
+                val location = SavedLocation(latitude!!.toDouble(),longitude!!.toDouble(),currentUser!!.uid,selectedItem,currentDate)
+                db.collection("location")
+                    .document()
+                    .set(location)
+                    .addOnSuccessListener { documentReference ->
+                        Toast.makeText(context,"Location Have Successfully Stored.",Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(context,"Failed to store.",Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+
         }
     }
 }
