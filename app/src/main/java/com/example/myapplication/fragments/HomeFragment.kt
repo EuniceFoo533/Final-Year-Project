@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.myapplication.R
+import com.example.myapplication.database.Parking
 import com.example.myapplication.database.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -19,6 +20,8 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.DecimalFormat
 import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
 
@@ -200,6 +203,8 @@ class HomeFragment : Fragment() {
             if(btn1!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 0.40
+                val minutes :Long = 30
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -207,7 +212,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser,price,minutes,item)
                     Toast.makeText(requireContext(),
                        "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -224,6 +229,8 @@ class HomeFragment : Fragment() {
             else if(btn2!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 0.60
+                val minutes :Long = 60
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -231,7 +238,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -248,6 +255,8 @@ class HomeFragment : Fragment() {
             else if(btn3!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 1.20
+                val minutes :Long = 120
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -255,7 +264,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -272,6 +281,8 @@ class HomeFragment : Fragment() {
             else if(btn4!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 1.80
+                val minutes :Long = 180
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -279,7 +290,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -296,6 +307,8 @@ class HomeFragment : Fragment() {
             else if(btn5!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 2.40
+                val minutes :Long = 240
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -303,7 +316,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -320,6 +333,8 @@ class HomeFragment : Fragment() {
             else if(btn6!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 3.00
+                val minutes :Long = 300
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -327,7 +342,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -344,6 +359,8 @@ class HomeFragment : Fragment() {
             else if(btn7!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 3.60
+                val minutes :Long = 360
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -351,7 +368,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -368,6 +385,8 @@ class HomeFragment : Fragment() {
             else if(btn8!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 4.20
+                val minutes :Long = 420
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -375,7 +394,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -392,6 +411,8 @@ class HomeFragment : Fragment() {
             else if(btn9!!.isChecked && spinner?.selectedItem !="--------Select Your Vehicle--------")
             {
                 val price :Double = 4.80
+                val minutes :Long = 480
+                var item = spinner?.selectedItem.toString()
 
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Confirmation")
@@ -399,7 +420,7 @@ class HomeFragment : Fragment() {
                         + "\n\nRM " + price.toString() + "0 Will Be Deduct From Your Wallet." )
 
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                    storeFirestore(currentUser,price)
+                    storeFirestore(currentUser, price, minutes, item)
                     Toast.makeText(requireContext(),
                         "Purchase Successfully!", Toast.LENGTH_SHORT).show()
                 }
@@ -422,16 +443,22 @@ class HomeFragment : Fragment() {
 }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun storeFirestore(currentUser: FirebaseUser, price: Double) {
+    private fun storeFirestore(currentUser: FirebaseUser, price: Double, minutes: Long, cars: String) {
 
         var currentDate = LocalDate.now().toString()
         var transactionType = "Purchase"
 
+        val currentTime = LocalTime.now()
+        val updatedTime = currentTime.plusMinutes(minutes)
+
+        val startTime = currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+        val endTime = updatedTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+
+
         var existAmount : Double = 0.0
 
-        walletRef = db.collection("wallet")
-
-            walletRef.document(currentUser!!.uid)
+            db.collection("wallet")
+                .document(currentUser!!.uid)
                 .get().addOnSuccessListener { documents->
                     if(documents!=null)
                     {
@@ -444,7 +471,7 @@ class HomeFragment : Fragment() {
                             fieldUpdates["walletAmount"] = existAmount
 
 
-                            walletRef
+                            db.collection("wallet")
                                 .document(currentUser!!.uid)
                                 .update(fieldUpdates)
                                 .addOnSuccessListener{
@@ -454,6 +481,18 @@ class HomeFragment : Fragment() {
                                     Toast.makeText(context,"Failed deduct.", Toast.LENGTH_SHORT).show()
 
                                 }
+
+                            val parking = Parking(cars,currentDate.toString(),startTime,endTime,currentUser!!.uid)
+
+                            db.collection("parking")
+                                .document()
+                                .set(parking)
+                                .addOnSuccessListener {
+
+                                }.addOnFailureListener{
+
+                                }
+
                         }
                     }
                 }

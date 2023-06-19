@@ -6,5 +6,4 @@ data class ItemParking(
     val parking_date:String,
     val parking_startTime:String,
     val parking_endTime: String,
-    val parking_userID :String
 )
