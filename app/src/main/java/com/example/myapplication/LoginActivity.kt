@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tvReset.setOnClickListener{
-            val intent = Intent(this, ResetPasswordFragment::class.java)
+            val intent = Intent(this, ResetPasswordActivity::class.java)
             startActivity(intent)
         }
 

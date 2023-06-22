@@ -9,46 +9,60 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentResetPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 
 
 class ResetPasswordFragment : Fragment() {
-private lateinit var firebaseAuth: FirebaseAuth
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reset_password, container, false)
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var binding : FragmentResetPasswordBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentResetPasswordBinding.inflate(
+            inflater,
+            container,
+            false
+        )
+
+
+        return binding.root
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        firebaseAuth = FirebaseAuth.getInstance()
-        val btnReset = getView()?.findViewById<Button>(R.id.buttonResetPassword)
-        val emailAddress = getView()?.findViewById<EditText>(R.id.edtEmailAddress)
+        val btnReset = getView()?.findViewById<Button>(R.id.buttonReset)
 
-        val email = emailAddress?.text.toString()
+            btnReset?.setOnClickListener {
+                firebaseAuth = FirebaseAuth.getInstance()
+                var email = binding.editEmail.text.toString()
 
-        btnReset?.setOnClickListener{
-            firebaseAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        // Password reset email sent successfully
-                        // You can show a confirmation message or take further actions
-                        Toast.makeText(context,"Reset Link Sent! Please Check Your Email.",Toast.LENGTH_SHORT).show()
 
-                    } else {
-                        // Password reset email sending failed
-                        // You can display an error message or handle the error
-                        Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
-
-                    }
+                if (email.isEmpty()) {
+                    Toast.makeText(context,"Please Enter Your Email Address.",Toast.LENGTH_SHORT).show()
                 }
-        }
+
+                else if(email.isNotEmpty()){
+                    firebaseAuth.sendPasswordResetEmail(email)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                // Password reset email sent successfully
+                                Toast.makeText(context,"Password Reset Email Sent To $email",Toast.LENGTH_SHORT).show()
+                            } else {
+                                // Failed to send password reset email
+                                Toast.makeText(context,"Failed To Send Password Reset Email: ${task.exception?.message}",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                }
 
 
-
-
-
+            }
     }
 }
